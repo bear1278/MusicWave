@@ -2,4 +2,5 @@ port: "8000"
 db:
   driver: "mysql"
   user: "root"
+  password: "qazwsx123"
   db_name: "MusicWave"
