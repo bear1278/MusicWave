@@ -11,7 +11,7 @@ import (
 
 /*func hundler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "Hi, %s", r.URL.Path[1:])
-	t, err := template.ParseFiles("./public/index.html")
+	t, err := template.ParseFiles("./public/signIn.html")
 	if err != nil {
 		log.Fatal(err)
 	}
