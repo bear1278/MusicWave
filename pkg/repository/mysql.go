@@ -8,7 +8,11 @@ import (
 )
 
 const (
-	usersTable = "users"
+	usersTable        = "users"
+	genresTable       = "genres"
+	userGenreTable    = "user_genre"
+	playlistTable     = "playlists"
+	userPlaylistTable = "user_playlist"
 )
 
 func MySqlDB(cfg configs.Config) (*sql.DB, error) {

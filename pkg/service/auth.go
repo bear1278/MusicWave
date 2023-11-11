@@ -2,16 +2,19 @@ package service
 
 import (
 	"crypto/sha1"
+	"encoding/hex"
+	"errors"
 	"fmt"
 	music "github.com/bear1278/MusicWave"
 	"github.com/bear1278/MusicWave/pkg/repository"
 	"github.com/dgrijalva/jwt-go"
+	"log"
 	"time"
 	"unicode/utf8"
 )
 
 const (
-	salt       = "11"
+	salt       = "djlspocnacdgd"
 	signingKey = "dvkdvkdfvsfvhg"
 	tokenTTL   = 12 * time.Hour
 )
@@ -49,9 +52,49 @@ func (a *AuthService) GenerateToken(username, password string) (string, error) {
 	return token.SignedString([]byte(signingKey))
 }
 
+func (a *AuthService) ParseToken(accessToken string) (int64, error) {
+	token, err := jwt.ParseWithClaims(accessToken, &tokenClaims{}, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, errors.New("invalid signing method")
+		}
+		return []byte(signingKey), nil
+	})
+	if err != nil {
+		return 0, err
+	}
+
+	claims, ok := token.Claims.(*tokenClaims)
+	if !ok {
+		return 0, errors.New("token claims are not of type")
+	}
+	return claims.UserId, nil
+}
+
 func (a *AuthService) generatePasswordHash(password string) string {
 	hash := sha1.New()
 	hash.Write([]byte(password))
-	passwordHash, _ := utf8.DecodeRune(hash.Sum([]byte(salt)))
+	passwordHash := hex.EncodeToString(hash.Sum([]byte(salt)))
+	if !utf8.ValidString(passwordHash) {
+		log.Printf("password valid: %s      ", passwordHash)
+	}
 	return fmt.Sprintf("%s", passwordHash)
+}
+
+func (a *AuthService) FillHtml() ([]music.Genre, error) {
+	//tmpl, err := template.New("recommend").ParseFiles("./public/recommendation.html")
+	//if err != nil {
+	//	return err
+	//}
+	genres, err := a.repo.GetAllGenres()
+	if err != nil {
+		return nil, err
+	}
+	return genres, nil
+}
+
+func (a *AuthService) InsertRecommendation(genres []music.Genre, userId int64) error {
+	if err := a.repo.InsertUserGenre(genres, userId); err != nil {
+		return err
+	}
+	return nil
 }
