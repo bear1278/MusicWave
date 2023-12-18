@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} body {
+      margin-top: 20px;
+      font-family: 'Roboto', sans-serif;
+      background-color: #F1F5FE;
+  }
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*height: 100vh;*/
+}
+
+.recommendation-form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
+.form-subtitle {
+    margin-bottom: 20px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-field {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-genre {
+    margin-right: 10px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-genre:checked {
+    background-color: #3498db;
+}
+
+
+.form-buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    font-family: 'Roboto', sans-serif;
+    width: 60%;
+    background: #247FFF;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+}
+.button:hover{
+    background-color: #0D6CF2;
+}

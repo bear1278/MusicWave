@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Profile</title>
+</head>
+<body>
+<header>
+    <div class="header-with-line">
+        <div class="header-container">
+            <div class="label">
+                <img src="/static/images/icon.png" alt="icon" class="icon">
+                <a class="icon-text" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a class="a" href="http://localhost:8000/main">Домой</a></li>
+                    <li><a class="a" href="http://localhost:8000/search">Поиск</a></li>
+                    <li><a class="a" href="http://localhost:8000/library">Медиатека</a></li>
+                    <li><a class="a" href="http://localhost:8000/profile">Профиль</a></li>
+                    <li><a class="a exit" href="http://localhost:8000">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="line"></div>
+    </div>
+</header>
+<main>
+    <div class="main-container-">
+        <div id="user">
+
+        </div>
+        <div class="line"></div>
+        <div class="button-container">
+            <div class="change-username">
+                <button class="button" id="change-username">Поменять Никнейм</button>
+                <form class="change-username-form" id="change-username-form">
+                    <label class="form-field">
+                        <input type="text" placeholder="Username" name="username">
+                    </label>
+                    <button class="button send" type="submit">Send</button>
+                </form>
+            </div>
+
+            <div class="change-email">
+                <button class="button" id="change-email">Сменить Email</button>
+                <form class="change-email-form" id="change-email-form">
+                    <label class="form-field">
+                        <input type="text" placeholder="Email" name="email">
+                    </label>
+                    <button class="button send" type="submit">Send</button>
+                </form>
+            </div>
+
+            <div class="change-password">
+                <button class="button" id="change-password">Сбросить пароль</button>
+                <form class="change-password-form" id="change-password-form">
+                    <label class="form-field">
+                        <input type="password" placeholder="Old Password" name="oldPassword">
+                    </label>
+                    <label class="form-field">
+                        <input type="password" placeholder="New Password" name="newPassword">
+                    </label>
+                    <label class="form-field">
+                        <input type="password" placeholder="Confirm Password" name="confirm-password">
+                    </label>
+                    <button class="button send" type="submit">Send</button>
+                </form>
+            </div>
+
+            <div class="change-picture">
+                <button class="button" id="change-picture">Изменить Аватар</button>
+                <form class="change-picture-form" id="change-picture-form" enctype="multipart/form-data">
+                    <label class="form-field">
+                        <input type="file" placeholder="Picture" name="picture" accept="image/svg+xml, image/jpeg, image/png">
+                    </label>
+                    <button class="button send" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="button-container-rec">
+            <a href="http://localhost:8000/auth/recommendation" class="button">Сменить Рекомендации</a>
+        </div>
+        <div class="line bottom"></div>
+        <h1 class="text">Информация профился</h1>
+        <div id="genres" class="total">
+            <h2 class="text margin" >Жанры: </h2>
+        </div>
+        <div id="total-duration" class="total">
+            <h2 class="text margin" >Продолжительность всех плейлистов: </h2>
+        </div>
+
+        <div class="top-spotify-list">
+
+            <h2 class="text">Топ Исполнителей</h2>
+            <div id="artist-list-profile"></div>
+            <div class="line bottom"></div>
+            <h2 class="text">Топ Треков</h2>
+            <div id="track-list-profile"></div>
+        </div>
+        <div class="line bottom"></div>
+        <h1 class="text">Информация из профиля Spotify</h1>
+        <div class="top-spotify-list">
+            <h2 class="text">Топ исполнителей</h2>
+            <div id="artist-list"></div>
+            <div class="line bottom"></div>
+            <h2 class="text">Топ Треков</h2>
+            <div id="track-list"></div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="line-foot"></div>
+        <div class="content">
+            <div class="label-foot">
+                <img src="/static/images/icon.png" alt="icon" class="icon-foot">
+                <a class="icon-text-foot" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/github.svg" alt="git" class="icon-git">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/ln.svg" alt="git" class="icon-ln">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/tg.svg" alt="git" class="icon-tg">
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="/static/profile.js"></script>
+</body>
+</html>

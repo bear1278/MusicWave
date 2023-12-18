@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Search</title>
+</head>
+<body>
+<header>
+    <div class="header-with-line">
+        <div class="header-container">
+            <div class="label">
+                <img src="/static/images/icon.png" alt="icon" class="icon">
+                <a class="icon-text" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a class="a" href="http://localhost:8000/main">Домой</a></li>
+                    <li><a class="a" href="http://localhost:8000/search">Поиск</a></li>
+                    <li><a class="a" href="http://localhost:8000/library">Медиатека</a></li>
+                    <li><a class="a" href="http://localhost:8000/profile">Профиль</a></li>
+                    <li><a class="a exit" href="http://localhost:8000">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="line"></div>
+    </div>
+</header>
+<main>
+    <div class="main-container">
+        <h1 class="text recommendation">Поиск</h1>
+        <form id="searchForm">
+            <div class="search-form">
+                <label>
+                    <input type="text" placeholder="Search" name="search" class="search-input">
+                </label>
+                <button type="button" class="button button-search" id="button-search">Искать</button>
+            </div>
+            <div class="radio-container">
+                <input class="radio" type="radio" id="artist" name="object" value="artist">
+                <label for="artist" class="radio-text">Исполнители</label>
+
+                <input class="radio" type="radio" id="album" name="object" value="album">
+                <label for="album" class="radio-text">Альбомы</label>
+
+                <input class="radio" type="radio" id="track" name="object" value="track">
+                <label for="track" class="radio-text">Треки</label>
+
+                <input class="radio" type="radio" id="playlist" name="object" value="playlists">
+                <label for="playlist" class="radio-text">Плейлисты</label>
+            </div>
+        </form>
+
+        <div class="line"></div>
+        <div class="blocks">
+            <div id="objects">
+
+            </div>
+            <div id="buttons" class="button-page"></div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="line-foot"></div>
+        <div class="content">
+            <div class="label-foot">
+                <img src="/static/images/icon.png" alt="icon" class="icon-foot">
+                <a class="icon-text-foot" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/github.svg" alt="git" class="icon-git">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/ln.svg" alt="git" class="icon-ln">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/tg.svg" alt="git" class="icon-tg">
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="/static/search.js"></script>
+</body>
+</html>

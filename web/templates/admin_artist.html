@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Main</title>
+</head>
+<body>
+<header>
+    <div class="header-with-line">
+        <div class="header-container">
+            <div class="label">
+                <img src="/static/images/icon.png" alt="icon" class="icon">
+                <a class="icon-text" href="http://localhost:8000/admin/artist/page">MusicWave</a>
+                <h4 class="text">Admin</h4>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a class="a" href="http://localhost:8000/admin/user/page">Пользователи</a></li>
+                    <li><a class="a" href="http://localhost:8000/admin/artist/page">Исполнители</a></li>
+                    <li><a class="a" href="http://localhost:8000/admin/playlist/page">Плейлисты</a></li>
+                    <li><a class="a" href="http://localhost:8000/admin/report/page">Отчеты</a></li>
+                    <li><a class="a" href="http://localhost:8000/admin/analytic/page">Аналитика</a></li>
+                    <li><a class="a exit-admin" href="http://localhost:8000">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="line"></div>
+    </div>
+</header>
+<main>
+    <div class="main-container">
+        <h1 class="text recommendation">Исполнители</h1>
+        <div class="content-main">
+            <div  id="artist-list">
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="line-foot"></div>
+        <div class="content">
+            <div class="label-foot">
+                <img src="/static/images/icon.png" alt="icon" class="icon-foot">
+                <a class="icon-text-foot" href="http://localhost:8000/admin/artist/page">MusicWave</a>
+            </div>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/github.svg" alt="git" class="icon-git">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/ln.svg" alt="linkedin" class="icon-ln">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/tg.svg" alt="git" class="icon-tg">
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="/static/admin_artist.js"></script>
+</body>
+</html>

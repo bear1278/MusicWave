@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relocate</title>
+</head>
+<body>
+<script>
+    // Function to handle the redirect
+    function redirectToMain(token) {
+        // Set the token in local storage
+        console.log(token)
+        localStorage.setItem('accessToken', token.access_token);
+        localStorage.setItem('refreshToken', token.refresh_token);
+        localStorage.setItem('expiry', token.expiry);
+
+        // Redirect to localhost:8000/main
+        window.location.href = "http://localhost:8000/main";
+    }
+
+    // Function to get query parameters from the URL
+    function getQueryParams() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.toString();
+    }
+
+    // Fetch JSON data with a GET request to the server, including query parameters
+    const queryParams = getQueryParams();
+    fetch(`http://localhost:8000/relocate/token?${queryParams}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming your token is in a property named 'token' in the JSON response
+            console.log(data)
+            const token = data;
+            redirectToMain(token);
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+</script>
+</body>
+</html>

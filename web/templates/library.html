@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Library</title>
+</head>
+<body>
+<header>
+    <div class="header-with-line">
+        <div class="header-container">
+            <div class="label">
+                <img src="/static/images/icon.png" alt="icon" class="icon">
+                <a class="icon-text" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a class="a" href="http://localhost:8000/main">Домой</a></li>
+                    <li><a class="a" href="http://localhost:8000/search">Поиск</a></li>
+                    <li><a class="a" href="http://localhost:8000/library">Медиатека</a></li>
+                    <li><a class="a" href="http://localhost:8000/profile">Профиль</a></li>
+                    <li><a class="a exit" href="http://localhost:8000">Выход</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="line"></div>
+    </div>
+</header>
+<main>
+    <div class="main-container">
+        <h1 class="text recommendation">Медиатека</h1>
+        <div class="creat-playlist-container">
+            <button class="button-create" id="create-playlist">+ Создать Плейлист</button>
+            <form class="create-playlist-form" id="create-playlist-form" enctype="multipart/form-data">
+                <label class="form-field">
+                    <input type="text" placeholder="Name" name="name" class="playlist-name">
+                </label>
+                <label class="form-field">
+                    <input type="file" placeholder="Cover" name="cover" class="cover" accept="image/svg+xml, image/jpeg, image/png">
+                </label>
+                <div class="radio-container">
+                    <input class="radio" type="radio" id="private" name="type" value="private">
+                    <label for="private" class="radio-text">Private</label>
+
+                    <input class="radio" type="radio" id="public" name="type" value="public">
+                    <label for="public" class="radio-text-create">Public</label>
+                </div>
+                <button class="send-create" type="submit" id="send">Send</button>
+            </form>
+        </div>
+        <div class="content-main">
+            <h2 class="text">Понравишиеся</h2>
+            <div class="tracks blocks">
+                <div id="favorites">
+                    
+                </div>
+            </div>
+            <h2 class="text">Мои плейлисты</h2>
+            <div class="albums blocks">
+                <div id="my-playlists">
+
+                </div>
+            </div>
+            <h2 class="text">Добавленные плейлисты</h2>
+            <div class="artists blocks">
+                <div id="added-playlists">
+
+                </div>
+            </div>
+            <h2 class="text">Альбомы</h2>
+            <div class="playlists blocks">
+                <div id="album-list">
+
+                </div>
+            </div>
+            <h2 class="text">Исполнители</h2>
+            <div class="playlists blocks">
+                <div id="artist-list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="line-foot"></div>
+        <div class="content">
+            <div class="label-foot">
+                <img src="/static/images/icon.png" alt="icon" class="icon-foot">
+                <a class="icon-text-foot" href="http://localhost:8000/main">MusicWave</a>
+            </div>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/github.svg" alt="git" class="icon-git">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/ln.svg" alt="git" class="icon-ln">
+            </a>
+            <a href="#" class="icon-git-container">
+                <img src="/static/images/tg.svg" alt="git" class="icon-tg">
+            </a>
+        </div>
+    </div>
+</footer>
+<script type="module" src="/static/library.js"></script>
+</body>
+</html>
