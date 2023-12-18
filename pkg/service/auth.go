@@ -14,9 +14,10 @@ import (
 )
 
 const (
-	salt       = "djlspocnacdgd"
-	signingKey = "dvkdvkdfvsfvhg"
-	tokenTTL   = 12 * time.Hour
+	salt             = "djlspocnacdgd"
+	signingKey       = "dvkdvkdfvsfvhg"
+	tokenTTL         = 12 * time.Hour
+	tokenTTLForEmail = 15 * time.Minute
 )
 
 type tokenClaims struct {
@@ -33,14 +34,14 @@ func NewAuthService(repo repository.Authorization) *AuthService {
 }
 
 func (a *AuthService) CreateUser(user music.User) (int64, error) {
-	user.Password = a.generatePasswordHash(user.Password)
+	user.Password = a.GeneratePasswordHash(user.Password)
 	return a.repo.CreateUser(user)
 }
 
 func (a *AuthService) GenerateToken(username, password string) (string, error) {
-	user, err := a.repo.GetUser(username, a.generatePasswordHash(password))
+	user, err := a.repo.GetUser(username, a.GeneratePasswordHash(password))
 	if err != nil {
-		return "", nil
+		return "", err
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, tokenClaims{
 		StandardClaims: jwt.StandardClaims{
@@ -70,7 +71,7 @@ func (a *AuthService) ParseToken(accessToken string) (int64, error) {
 	return claims.UserId, nil
 }
 
-func (a *AuthService) generatePasswordHash(password string) string {
+func (a *AuthService) GeneratePasswordHash(password string) string {
 	hash := sha1.New()
 	hash.Write([]byte(password))
 	passwordHash := hex.EncodeToString(hash.Sum([]byte(salt)))
@@ -97,4 +98,24 @@ func (a *AuthService) InsertRecommendation(genres []music.Genre, userId int64) e
 		return err
 	}
 	return nil
+}
+
+func (a *AuthService) GenerateTokenForReset(username, email string) (music.User, string, error) {
+	user, err := a.repo.SelectUsersEmail(username, email)
+	if err != nil {
+		return music.User{}, "", err
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, tokenClaims{
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(tokenTTLForEmail).Unix(),
+			IssuedAt:  time.Now().Unix(),
+		},
+		UserId: user.Id,
+	})
+	tokenString, err := token.SignedString([]byte(signingKey))
+	return user, tokenString, err
+}
+
+func (a *AuthService) SetNewPassword(id int64, password string) error {
+	return a.repo.SetNewPassword(id, a.GeneratePasswordHash(password))
 }
