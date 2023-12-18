@@ -1,6 +1,14 @@
-port: "8000"
+port: ":8000"
 db:
   driver: "mysql"
   user: "root"
-  password: "qazwsx123"
-  db_name: "MusicWave"
+  password: "your_password"
+  db_name: "your_db_name"
+spotify:
+  redirectURI: "Spotify_relocate"
+  clientID: "Your_clientID"
+  clientSecret: "Your_clientSecret"
+  state: "Your_state"
+email:
+  from: "Your_email"
+  password: "Your_application_password"

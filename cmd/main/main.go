@@ -9,18 +9,7 @@ import (
 	"log"
 )
 
-/*func hundler(w http.ResponseWriter, r *http.Request) {
-	//fmt.Fprintf(w, "Hi, %s", r.URL.Path[1:])
-	t, err := template.ParseFiles("./public/signIn.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-	t.Execute(w, "")
-}*/
-
 func main() {
-	/*	http.HandleFunc("/", hundler)
-		log.Fatal(http.ListenAndServe(":8080", nil))*/
 	cfg, err := configs.Init()
 	if err != nil {
 		log.Fatalf("error occured while read config: %s", err.Error())
