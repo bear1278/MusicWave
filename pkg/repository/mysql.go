@@ -8,11 +8,20 @@ import (
 )
 
 const (
-	usersTable        = "users"
-	genresTable       = "genres"
-	userGenreTable    = "user_genre"
-	playlistTable     = "playlists"
-	userPlaylistTable = "user_playlist"
+	usersTable         = "users"
+	genresTable        = "genres"
+	userGenreTable     = "user_genre"
+	playlistTable      = "playlists"
+	userPlaylistTable  = "user_playlist"
+	trackTable         = "tracks"
+	playlistTrackTable = "playlist_track"
+	albumTable         = "Albums"
+	artistTable        = "Artists"
+	artistAlbumTable   = "Artist_album"
+	artistGenreTable   = "Artist_Genre"
+	userAlbumTable     = "User_Album"
+	userArtistTable    = "User_Artist"
+	adminHistory       = "adminhistory"
 )
 
 func MySqlDB(cfg configs.Config) (*sql.DB, error) {
@@ -25,6 +34,5 @@ func MySqlDB(cfg configs.Config) (*sql.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return db, nil
 }
