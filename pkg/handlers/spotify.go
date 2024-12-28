@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	redirectURI = "You_redirect_url" // Set this to the redirect URI you specified in the Spotify Developer Dashboard
+	redirectURI = "http://localhost:8000/relocate" // Set this to the redirect URI you specified in the Spotify Developer Dashboard
 	scopes      = []string{spotify.ScopeUserReadPrivate, spotify.ScopeUserReadEmail, spotify.ScopePlaylistModifyPublic, spotify.ScopePlaylistModifyPrivate, spotify.ScopeUserLibraryModify, spotify.ScopeUserTopRead, spotify.ScopeUserLibraryRead}
 )
 

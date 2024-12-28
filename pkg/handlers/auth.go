@@ -73,7 +73,7 @@ func (h *Handler) mainGet(ctx *gin.Context) {
 }
 
 func (h *Handler) recommendationGet(ctx *gin.Context) {
-	tmpl, err := template.ParseFiles("public/recommendation.html")
+	tmpl, err := template.ParseFiles("web/templates/recommendation.html")
 	if err != nil {
 		newErrorResponse(ctx, http.StatusInternalServerError, err.Error())
 		return
